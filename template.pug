@@ -5,4 +5,11 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
-  body 
+  body
+    - const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    - for (const message of messages) {
+      - const date = `${months[message.date.getMonth()]} ${message.date.getDate()} ${message.date.getFullYear()}`;
+      p= date
+      h1= message.heading
+      p= message.body
+    - }

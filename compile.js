@@ -1,2 +1,13 @@
+const fs = require("fs");
 const pug = require("pug");
-// TODO: easily readable data format (txt, yaml, json, etc)
+
+const data = fs.readFileSync("data.txt", "utf8");
+const messages = data.split("<>").map(message => {
+  const [date, heading, body] = message.trim().split("\n").map(part => part.trim());
+  return { date: new Date(date), heading, body };
+});
+
+const compiler = pug.compileFile("template.pug");
+const html = compiler({ messages });
+
+fs.writeFileSync("newsletter.html", html);
