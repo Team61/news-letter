@@ -13,14 +13,33 @@ html(lang="en")
       }
     
       body {
-        width: 50%;
+        width: 600px;
         margin: 0 auto;
+      }
+
+      header {
+        width: 100%;
+        margin-top: 2rem;
+        background: #500050;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem;
+        z-index: 20;
+      }
+
+      header h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #f0eeff;
       }
 
       section {
         position: relative;
         padding: 1rem;
         margin: 0;
+        width: 100%;
       }
 
       section::before {
@@ -51,7 +70,7 @@ html(lang="en")
         background: #ddaaff;
       }
 
-      .variant-0::before {
+      .variant-0::before:not(::first-child) {
         box-shadow: 0 25px 0 0 #ddaaff;
       }
 
@@ -67,11 +86,31 @@ html(lang="en")
         box-shadow: 0 25px 0 0 #ffddaa;
       }
 
-      .variant-1::after {
+      .variant-1::after:not(::last-child) {
         box-shadow: 0 -25px 0 0 #ffddaa;
+      }
+
+      footer {
+        width: 100%;
+        margin-bottom: 2rem;
+        background: #500050;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        z-index: 20;
+      }
+
+      footer h4 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #7a788b;
       }
   body
     header
+      img(src="https://www.valleytech.k12.ma.us/cms/lib/MA01907491/Centricity/Template/GlobalAssets/images///logos/bvt-district.png", alt="BVT Logo")
+      h1 Team61 Newsletter
     main
       - const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       - for (let i = 0; i < messages.length; i++) {
@@ -83,3 +122,4 @@ html(lang="en")
             p= message.body
       - }
     footer
+      h4 Team61 Newsletter
