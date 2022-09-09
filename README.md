@@ -15,3 +15,10 @@ information
 
 - Each section should be separated by typing <>
 - Dates are optional, but should be replaced with something like a dot instead of being left empty.
+
+# SETUP
+- Must have node.js installed
+- Upon downloading from GitHub, run `npm i` in the project directory.
+- MACOS ONLY:
+  - run `chmod +x GENERATE-mac.sh`
+- Change data.txt to have the required content, then run GENERATE-windows.bat or GENERATE-mac.bat depending on your operating system.
