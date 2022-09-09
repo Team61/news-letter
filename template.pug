@@ -7,7 +7,7 @@ html(lang="en")
     title Team61 Newsletter
     style.
       html, body {
-        background: #f1f1ff;
+        background: #f0eeff;
         margin: 0;
         padding: 0;
       }
@@ -16,13 +16,68 @@ html(lang="en")
         width: 50%;
         margin: 0 auto;
       }
+
+      section {
+        position: relative;
+        padding: 1rem;
+        margin: 0;
+      }
+
+      section::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: 0;
+        height: 50px;
+        width: 25px;
+        border-bottom-right-radius: 25px;
+        background: transparent;
+        z-index: 1;
+      }
+
+      section::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        height: 50px;
+        width: 25px;
+        border-top-left-radius: 25px;
+        background: transparent;
+        z-index: 1;
+      }
+
+      .variant-0 {
+        background: #ddaaff;
+      }
+
+      .variant-0::before {
+        box-shadow: 0 25px 0 0 #ddaaff;
+      }
+
+      .variant-0::after {
+        box-shadow: 0 -25px 0 0 #ddaaff;
+      }
+
+      .variant-1 {
+        background: #ffddaa;
+      }
+
+      .variant-1::before {
+        box-shadow: 0 25px 0 0 #ffddaa;
+      }
+
+      .variant-1::after {
+        box-shadow: 0 -25px 0 0 #ffddaa;
+      }
   body
     header
     main
       - const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      - for (const message of messages) {
-        - const date = `${months[message.date.getMonth()]} ${message.date.getDate()} ${message.date.getFullYear()}`;
-          section
+      - for (let i = 0; i < messages.length; i++) {
+        - const message = messages[i];
+        - const date = `${months[message.date.getMonth()]} ${message.date.getDate()} ${message.date.getFullYear()}`; // TODO: make date optional
+          section(class=`variant-${i % 2}`)
             p= date
             h1= message.heading
             p= message.body
