@@ -20,5 +20,5 @@ information
 - Must have node.js installed
 - Upon downloading from GitHub, run `npm i` in the project directory.
 - MACOS ONLY:
-  - run `chmod +x GENERATE-mac.sh`
+  - run `chmod a+x GENERATE-mac`
 - Change data.txt to have the required content, then run GENERATE-windows.bat or GENERATE-mac.bat depending on your operating system.

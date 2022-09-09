@@ -1,6 +1,7 @@
 const fs = require("fs");
 const pug = require("pug");
 const minify = require("html-minifier").minify;
+const nodeHtmlToImage = require('node-html-to-image');
 
 const data = fs.readFileSync("data.txt", "utf8");
 const messages = data.split("<>").map(message => {
@@ -13,3 +14,8 @@ const html = compiler({ messages });
 const minified = minify(html, { minifyCSS: true });
 
 fs.writeFileSync("newsletter.html", minified);
+
+nodeHtmlToImage({
+  output: 'newsletter.png',
+  html: minified
+});
