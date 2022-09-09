@@ -45,6 +45,10 @@ html(lang="en")
         align-items: center;
       }
 
+      section div {
+        color: #110022;
+      }
+
       .date-container {
         padding: 0.5rem;
         margin-right: 1.5rem;
@@ -97,11 +101,11 @@ html(lang="en")
         background: #ddaaff;
       }
 
-      .variant-0::before:not(::first-child) {
+      .variant-0:not(:first-child):before {
         box-shadow: 0 25px 0 0 #ddaaff;
       }
 
-      .variant-0::after {
+      .variant-0:after {
         box-shadow: 0 -25px 0 0 #ddaaff;
       }
 
@@ -109,11 +113,11 @@ html(lang="en")
         background: #ffddaa;
       }
 
-      .variant-1::before {
+      .variant-1:before {
         box-shadow: 0 25px 0 0 #ffddaa;
       }
 
-      .variant-1::after:not(::last-child) {
+      .variant-1:not(:last-child):after {
         box-shadow: 0 -25px 0 0 #ffddaa;
       }
 
@@ -121,18 +125,21 @@ html(lang="en")
         width: 100%;
         margin-bottom: 2rem;
         background: #500050;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 1rem;
+        color: #999499;
         z-index: 20;
       }
 
       footer h4 {
+        margin: 0;
         display: block;
         width: 100%;
         text-align: center;
-        color: #7a788b;
+      }
+
+      pre.remind {
+        display: inline;
+        text-decoration: underline;
       }
   body
     header
@@ -144,12 +151,15 @@ html(lang="en")
         - const message = messages[i];
         - const date = [months[message.date.getMonth()], message.date.getDate(), message.date.getFullYear()]; // TODO: make date optional
           section(class=`variant-${i % 2}`)
-            div.date-container
-              p.month= date[0]
-              p.date= `${date[1]}, ${date[2]}`
+            - if (!isNaN(message.date)) {
+              div.date-container
+                p.month= date[0]
+                p.date= `${date[1]}, ${date[2]}`
+            - }
             div
               h2= message.heading
               p= message.body
       - }
     footer
-      h4 Team61 Newsletter
+      h4 Remind: #[pre.remind team61ro]
+      h4 Mettings every Tuesday at 2:15
