@@ -40,6 +40,33 @@ html(lang="en")
         padding: 1rem;
         margin: 0;
         width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .date-container {
+        padding: 0.5rem;
+        margin-right: 1.5rem;
+        flex: 1;
+      }
+
+      .date-container p {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        display: block;
+        width: 150px;
+      }
+
+      p.month {
+        font-size: 2.5em;
+        font-weight: bold;
+      }
+
+      p.date {
+        font-size: 1.25em;
+        font-weight: bold;
       }
 
       section::before {
@@ -115,11 +142,14 @@ html(lang="en")
       - const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       - for (let i = 0; i < messages.length; i++) {
         - const message = messages[i];
-        - const date = `${months[message.date.getMonth()]} ${message.date.getDate()} ${message.date.getFullYear()}`; // TODO: make date optional
+        - const date = [months[message.date.getMonth()], message.date.getDate(), message.date.getFullYear()]; // TODO: make date optional
           section(class=`variant-${i % 2}`)
-            p= date
-            h1= message.heading
-            p= message.body
+            div.date-container
+              p.month= date[0]
+              p.date= `${date[1]}, ${date[2]}`
+            div
+              h2= message.heading
+              p= message.body
       - }
     footer
       h4 Team61 Newsletter
