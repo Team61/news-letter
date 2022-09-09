@@ -12,6 +12,6 @@ information \
 date \
 heading \
 information \
-\
+
 - Each section should be separated by typing <>
 - Dates are optional, but should be replaced with something like a dot instead of being left empty.
