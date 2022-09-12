@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Team61 Newsletter
+    title Team 61 Newsletter
     style.
       @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
@@ -16,13 +16,11 @@ html(lang="en")
       }
     
       body {
-        width: 600px;
-        margin: 0 auto;
+        width: 800px;
       }
 
       header {
         width: 100%;
-        margin-top: 2rem;
         background: #500050;
         display: flex;
         justify-content: flex-start;
@@ -143,11 +141,12 @@ html(lang="en")
       pre.remind {
         display: inline;
         text-decoration: underline;
+        font-size: 1.5em;
       }
   body
     header
       img(src="https://www.valleytech.k12.ma.us/cms/lib/MA01907491/Centricity/Template/GlobalAssets/images///logos/bvt-district.png", alt="BVT Logo")
-      h1 Team61 Newsletter
+      h1 Team 61 Newsletter
     main
       - const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       - for (let i = 0; i < messages.length; i++) {
@@ -165,4 +164,4 @@ html(lang="en")
       - }
     footer
       h4 Remind: #[pre.remind team61ro]
-      h4 Mettings every Tuesday at 2:15
+      h4 Mettings every Tuesday at 2:15 in the cafe
